@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Settings</key>
+	<dict>
+		<key>music</key>
+		<string>Music:</string>
+		<key>sound_effects</key>
+		<string>Sound effects:</string>
+		<key>language</key>
+		<string>Language:</string>
+	</dict>
+	<key>MainMenu</key>
+	<dict>
+		<key>settings</key>
+		<string>Settings</string>
+		<key>about</key>
+		<string>About</string>
+		<key>play</key>
+		<string>Play</string>
+	</dict>
+	<key>About</key>
+	<dict>
+		<key>open_url</key>
+		<string>Open URL</string>
+		<key>send_email</key>
+		<string>Send email</string>
+		<key>market_this_app</key>
+		<string>Market this App</string>
+		<key>market_developer_apps</key>
+		<string>Market developer&apos;s Apps</string>
+		<key>open_twitter_profile</key>
+		<string>Open Twitter profile</string>
+		<key>open_facebook_profile</key>
+		<string>Open Facebook profile</string>
+		<key>post_on_twitter</key>
+		<string>Post on Twitter</string>
+	</dict>
+	<key>General</key>
+	<dict>
+		<key>back</key>
+		<string>Back</string>
+	</dict>
+</dict>
+</plist>
