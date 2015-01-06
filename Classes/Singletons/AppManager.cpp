@@ -7,7 +7,6 @@
 //
 
 #include "AppManager.h"
-#include "HUDManager.h"
 #include "SceneManager.h"
 
 // Singleton
@@ -27,26 +26,6 @@ AppManager::AppManager()
 AppManager::~AppManager()
 {
     
-}
-
-void AppManager::setDelegate(GameSceneDelegate *delegate)
-{
-    _delegate = delegate;
-}
-
-void AppManager::initGame()
-{
-    _delegate->initGame();
-}
-
-void AppManager::resetGame()
-{
-    _delegate->resetGame();
-}
-
-void AppManager::finishGame()
-{
-    _delegate->finishGame();
 }
 
 void AppManager::exitToMainMenu()

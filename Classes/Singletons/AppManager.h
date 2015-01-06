@@ -21,13 +21,11 @@ public:
     static AppManager* getInstance();
     ~AppManager();
     
-    void initGame();
-    void resetGame();
-    void finishGame();
+    void initGame() {_delegate->initGame();};
+    void resetGame() {_delegate->resetGame();};
+    void finishGame() {_delegate->finishGame();};
+    void setDelegate(GameSceneDelegate *delegate) {_delegate = delegate;};
     void exitToMainMenu();
-    void setDelegate(GameSceneDelegate *delegate);
-    
-    CC_SYNTHESIZE(float, _scaleFactor, ScaleFactor);
 protected:
     AppManager();
     static AppManager *_instance;
