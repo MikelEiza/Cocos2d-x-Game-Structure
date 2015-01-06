@@ -21,7 +21,7 @@ public:	// Public singleton
     static HUDManager* getInstance();
     ~HUDManager();
 
-    void setDelegate(GameHUDDelegate *delegate);
+    void setDelegate(GameHUDDelegate *delegate) {_delegate = delegate;};
     void showMenu() {_delegate->showMenu();};
     void hideMenu() {_delegate->hideMenu();};
 

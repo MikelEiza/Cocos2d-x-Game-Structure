@@ -27,8 +27,3 @@ HUDManager::~HUDManager()
 {
     
 }
-
-/*void HUDManager::setDelegate(PuzzleGameHUDDelegate *delegate)
-{
-    _delegate = delegate;
-}*/
