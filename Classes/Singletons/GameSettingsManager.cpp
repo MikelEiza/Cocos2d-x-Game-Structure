@@ -64,8 +64,8 @@ void GameSettingsManager::loadSettings()
     }
     
     _currentLanguage = static_cast<LanguageType>(userDefault->getIntegerForKey("currentLanguage", 0));
-    _music = userDefault->getBoolForKey("music");
-    _sfx = userDefault->getBoolForKey("sfx");
+    _music = userDefault->getBoolForKey("music", true);
+    _sfx = userDefault->getBoolForKey("sfx", true);
 }
 
 /**
@@ -84,6 +84,13 @@ void GameSettingsManager::setLanguage(LanguageType language)
     userDefault->flush();
 }
 
+/**
+ * \brief If background music is playing, stop it it. Else, play it
+ *
+ * \param[in]		Nan
+ * \param[out]		Nan
+ *
+ */
 void GameSettingsManager::switchMusic()
 {
     _music = !_music;
@@ -100,6 +107,13 @@ void GameSettingsManager::switchMusic()
     userDefault->flush();
 }
 
+/**
+ * \brief If sound effects are enabled, disable them. Else, enable them
+ *
+ * \param[in]		Nan
+ * \param[out]		Nan
+ *
+ */
 void GameSettingsManager::switchSFX()
 {
     _sfx = !_sfx;
