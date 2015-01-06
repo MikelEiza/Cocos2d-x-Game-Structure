@@ -155,7 +155,6 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		9716C8CF1A52B05D0042946D /* CommonProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonProtocols.h; sourceTree = "<group>"; };
 		9716C8D01A52B05D0042946D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9716C8D21A52B05D0042946D /* ButtonSpriteLabelOnOff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSpriteLabelOnOff.h; sourceTree = "<group>"; };
 		9716C8D31A52B05D0042946D /* CheckBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CheckBox.cpp; sourceTree = "<group>"; };
 		9716C8D41A52B05D0042946D /* CheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckBox.h; sourceTree = "<group>"; };
 		9716C8D61A52B05D0042946D /* LanguageManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LanguageManager.cpp; sourceTree = "<group>"; };
@@ -401,7 +400,6 @@
 		9716C8D11A52B05D0042946D /* CustomGUI */ = {
 			isa = PBXGroup;
 			children = (
-				9716C8D21A52B05D0042946D /* ButtonSpriteLabelOnOff.h */,
 				9716C8D31A52B05D0042946D /* CheckBox.cpp */,
 				9716C8D41A52B05D0042946D /* CheckBox.h */,
 			);
