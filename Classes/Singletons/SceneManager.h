@@ -18,9 +18,7 @@ public:	// Public singleton
     static SceneManager* getInstance();
     ~SceneManager();
     void runSceneWithType(const SceneType sceneType);
-    void setSceneToReturn(SceneType sceneType);
     void returnToLastScene();
-    void backButtonPressed();
 private:
     SceneType _sceneTypeToReturn;
     SceneType _currentSceneType;

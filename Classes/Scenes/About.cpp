@@ -7,7 +7,7 @@
 //
 
 #include "About.h"
-#include "../Singletons/AppManager.h"
+#include "../Singletons/SceneManager.h"
 #include "../Singletons/SoundManager.h"
 #include "../Helpers/SocialSharingManager.h"
 #include "../Helpers/LanguageManager.h"
@@ -145,7 +145,7 @@ void About::buttonPressed(Ref *sender)
             
             break;
         case ButtonType::BACK:
-            AppManager::getInstance()->exitToMainMenu();
+            SceneManager::getInstance()->returnToLastScene();
             break;
         default:
             break;
@@ -156,5 +156,5 @@ void About::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 {
     // exit to MainMenu only if back key pressed (KeyCode == 6)
     if (static_cast<int>(keyCode) != 6) return;
-    AppManager::getInstance()->exitToMainMenu();
+    SceneManager::getInstance()->returnToLastScene();
 }

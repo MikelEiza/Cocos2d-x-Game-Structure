@@ -26,7 +26,9 @@ SceneManager* SceneManager::getInstance()
     return _instance;
 }
 
-SceneManager::SceneManager()
+SceneManager::SceneManager():
+_sceneTypeToReturn(SceneType::MAINMENU),
+_currentSceneType(SceneType::MAINMENU)
 {
     
 }
@@ -63,6 +65,8 @@ void SceneManager::runSceneWithType(const SceneType sceneType)
 		return;
 	}
     
+    _sceneTypeToReturn = oldScene;
+    
     if (CCDirector::getInstance()->getRunningScene() == nullptr) {
     	CCDirector::getInstance()->runWithScene(sceneToRun);
     }
@@ -71,19 +75,7 @@ void SceneManager::runSceneWithType(const SceneType sceneType)
 	}
 }
 
-void SceneManager::setSceneToReturn(SceneType sceneType)
-{
-    _sceneTypeToReturn = sceneType;
-}
-
 void SceneManager::returnToLastScene()
 {
     this->runSceneWithType(_sceneTypeToReturn);
-}
-
-void SceneManager::backButtonPressed()
-{
-    if (_currentSceneType == SceneType::SETTINGS || _currentSceneType == SceneType::ABOUT) {
-        this->runSceneWithType(SceneType::MAINMENU);
-    }
 }

@@ -7,7 +7,7 @@
 //
 
 #include "Settings.h"
-#include "../Singletons/AppManager.h"
+#include "../Singletons/SceneManager.h"
 #include "../Singletons/GameSettingsManager.h"
 #include "../Helpers/LanguageManager.h"
 #include "../CustomGUI/CheckBox.h"
@@ -209,7 +209,7 @@ void Settings::buttonPressed(Ref *sender)
             this->displayLanguageMenu();
             break;
         case ButtonType::BACK_SETTINGS:
-            AppManager::getInstance()->exitToMainMenu();
+            SceneManager::getInstance()->returnToLastScene();
             break;
         case ButtonType::BACK_LANGUAGE:
             this->displaySettingsMenu();
@@ -228,6 +228,6 @@ void Settings::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
         this->displaySettingsMenu();
     }
     else {
-        AppManager::getInstance()->exitToMainMenu();
+        SceneManager::getInstance()->returnToLastScene();
     }
 }
