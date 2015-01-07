@@ -25,23 +25,30 @@ THE SOFTWARE.
 package org.cocos2dx.lib;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 import java.util.Locale;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.lang.Runnable;
+import java.net.URLEncoder;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.ResolveInfo;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager.OnActivityResultListener;
+import android.text.Html;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class Cocos2dxHelper {
     // ===========================================================
@@ -405,6 +412,96 @@ public class Cocos2dxHelper {
         editor.putString(key, value);
         editor.commit();
     }
+    
+    // ===========================================================
+    // My custom functions
+    // ===========================================================	
+	
+    static public void sendEMail(String to, String subject, String message)
+	{
+		Log.v("Mailing", "Send Mail");
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("text/html");
+		String[] recipients = new String[]{to};
+		intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+		intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+		intent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(message));
+
+		sActivity.startActivity(intent);
+	}
+    
+    static public void openWeb(String direction)
+    {
+    	Intent i = new Intent(Intent.ACTION_VIEW);  
+        i.setData(Uri.parse(direction));
+        sActivity.startActivity(i);
+    }
+    
+    static public void openMarketApp(String idAndroid)
+    {
+    	Uri uri = Uri.parse("market://details?id="+idAndroid);
+		Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+		try 
+		{
+			sActivity.startActivity(goToMarket);
+		} 
+		catch (ActivityNotFoundException e) 
+		{
+			Toast.makeText(sActivity, "No in market!", Toast.LENGTH_LONG).show();
+		}
+    }
+    
+    static public void openMarketApps(String idAndroid)
+    {
+    	Uri uri = Uri.parse("market://search?q=pub:"+idAndroid);
+		Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+		try 
+		{
+			sActivity.startActivity(goToMarket);
+		} 
+		catch (ActivityNotFoundException e) 
+		{
+			Toast.makeText(sActivity, "No in market!", Toast.LENGTH_LONG).show();
+		}
+    }
+    
+    static public void openTwitterProfile(String username)
+    {
+    	try {
+    		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + username));
+    		sActivity.startActivity(intent);
+
+    		}catch (Exception e) {
+    			sActivity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!/"+username))); 
+    		} 
+    }
+    
+    static public void sendTweet(String message)
+	{
+		// Create intent using ACTION_VIEW and a normal Twitter url:
+		String tweetUrl = String.format("https://twitter.com/intent/tweet?text=%s",urlEncode(message));
+		Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(tweetUrl));
+
+		// Narrow down to official Twitter app, if available:
+		List<ResolveInfo> matches = sActivity.getPackageManager().queryIntentActivities(intent, 0);
+		for (ResolveInfo info : matches) {
+		    if (info.activityInfo.packageName.toLowerCase().startsWith("com.twitter")) {
+		        intent.setPackage(info.activityInfo.packageName);
+		    }
+		}
+
+		sActivity.startActivity(intent);
+	}
+    
+    public static String urlEncode(String s) {
+	    try {
+	        return URLEncoder.encode(s, "UTF-8");
+	    }
+	    catch (UnsupportedEncodingException e) {
+	        Log.wtf("urlEncode", "UTF-8 should always be supported", e);
+	        throw new RuntimeException("URLEncoder.encode() failed for " + s);
+	    }
+	}
     
     // ===========================================================
     // Inner and Anonymous Classes
