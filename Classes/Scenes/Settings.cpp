@@ -157,11 +157,11 @@ void Settings::displayLanguageMenu()
     
     // Back button
     auto back = Label::createWithSystemFont(LanguageManager::getLocalizedText("General", "back"), "", 40);
-    auto backButton = MenuItemLabel::create(back, CC_CALLBACK_1(Settings::buttonPressed, this));
-    backButton->setAnchorPoint(Point::ANCHOR_TOP_LEFT);
-    backButton->setTag(static_cast<int>(ButtonType::BACK_LANGUAGE));
-    backButton->setPosition(Point(10, origin.y + visibleSize.height - 10));
-    items.pushBack(backButton);
+    _backButton = MenuItemLabel::create(back, CC_CALLBACK_1(Settings::buttonPressed, this));
+    _backButton->setAnchorPoint(Point::ANCHOR_TOP_LEFT);
+    _backButton->setTag(static_cast<int>(ButtonType::BACK_LANGUAGE));
+    _backButton->setPosition(Point(10, origin.y + visibleSize.height - 10));
+    items.pushBack(_backButton);
     
     auto menu = Menu::createWithArray(items);
     menu->setPosition(Point::ZERO);
