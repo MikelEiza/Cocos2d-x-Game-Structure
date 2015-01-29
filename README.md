@@ -7,6 +7,10 @@ This is not the final version and it has been only tested on iOS. In future comm
 
 Also, I will update this readme file to explain the different features.
 
+##Requirements
++ Cocos2d-x 3.3 Dec.12
++ Android NDK r10d
+
 ##Scenes
 
 ###Main Menu
