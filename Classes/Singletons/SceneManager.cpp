@@ -40,8 +40,6 @@ SceneManager::~SceneManager()
 
 void SceneManager::runSceneWithType(const SceneType sceneType)
 {
-    SceneType oldScene = _currentSceneType;
-	_currentSceneType = sceneType;
 	Scene *sceneToRun = nullptr;
     switch (sceneType) {
         case SceneType::MAINMENU:
@@ -58,6 +56,8 @@ void SceneManager::runSceneWithType(const SceneType sceneType)
             return;
             break;
 	}
+    SceneType oldScene = _currentSceneType;
+    _currentSceneType = sceneType;
     sceneToRun->setTag(static_cast<int>(sceneType));
 
 	if (sceneToRun == nullptr) {
